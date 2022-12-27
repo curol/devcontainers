@@ -1,0 +1,48 @@
+{
+  "name": "devcontainer-js",
+  "remoteUser": "vscode",
+  // Workspace
+  "workspaceMount": "source=${localWorkspaceFolderBasename},target=/workspaces/${localWorkspaceFolderBasename},type=volume",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [3000, 3001, 9229],
+  "mounts": [
+    "source=commandhistory,target=/commandhistory,type=volume"
+  ],
+  "postCreateCommand": "sudo chown -R 'vscode:vscode' /workspaces",
+  // Build
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "bullseye",
+      "NODE_VERSION": "18",
+      "USER": "vscode"
+    }
+  },
+  // Customize
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "dsznajder.es7-react-js-snippets",
+        "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
+        "JannisX11.batch-rename-extension",
+        "ms-azuretools.vscode-docker",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "ms-vscode.js-debug-nightly",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode.remote-server",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode.remote-explorer",
+        "ms-vscode.remote-repositories",
+        "ms-vscode-remote.remote-wsl"
+      ]
+    }
+  }
+}
