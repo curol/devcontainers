@@ -1,0 +1,9 @@
+{
+  "name": "curol-devcontainers",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://github.com/curol/devcontainers#readme",
+  "devDependencies": {
+    "@devcontainers/cli": "^0.26.0"
+  }
+}

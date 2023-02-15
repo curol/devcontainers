@@ -1,0 +1,27 @@
+{
+  "name": "debian-with-docker",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "mounts": [
+    "source=commandhistory,target=/commandhistory,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "ms-azuretools.vscode-docker",
+        "timonwong.shellcheck",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  }
+  // Use volume if developing on a remote host
+  // "workspaceFolder": "/workspaces/docker",
+  // "workspaceMount": "source=docker,target=/workspaces/docker,type=volume",
+  // "postCreateCommand": "sudo chown -R vscode:vscode /workspaces",
+}

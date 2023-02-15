@@ -1,0 +1,23 @@
+{
+  "name": "debian",
+  "remoteUser": "vscode",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "vscode",
+      "DOTFILES": "https://github.com/curol/dotfiles",
+      "WORKSPACE_PATH": "/workspaces"
+    }
+  },
+  "mounts": [
+    "source=commandhistory,target=/commandhistory,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "mads-hartmann.bash-ide-vscode",
+      ]
+    }
+  }
+}

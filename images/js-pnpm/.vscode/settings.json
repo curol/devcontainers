@@ -1,0 +1,133 @@
+{
+  //##############################################################################
+  // Dotfiles
+  //##############################################################################
+  "dotfiles.repository": "https://github.com/curol/dotfiles",
+  "dotfiles.targetPath": "~/dotfiles",
+  "dotfiles.installCommand": "~/dotfiles/install.sh",
+
+  //##############################################################################
+  // Search
+  //##############################################################################
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.pnpm-store": true,
+    "**/.next": true,
+    "**/.vercel": true,
+    "**/.git": true,
+    "**/dist": true
+  },
+  "search.searchEditor.doubleClickBehaviour": "goToLocation",
+  "search.useGlobalIgnoreFiles": false,
+  "search.useParentIgnoreFiles": false,
+  "search.useIgnoreFiles": true,
+
+  //##############################################################################
+  // Terminal
+  //##############################################################################
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.fontSize": 16,
+  // "terminal.integrated.fontFamily": "",
+
+  //##############################################################################
+  // Editor
+  //##############################################################################
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.showFoldingControls": "always",
+  "editor.suggest.showSnippets": true,
+  "editor.snippetSuggestions": "bottom",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.quickSuggestionsDelay": 50,
+  "editor.suggest.insertMode": "insert",
+  "editor.bracketPairColorization.enabled": true,
+  "outline.showPackages": true,
+  "explorer.incrementalNaming": "smart",
+
+  //##############################################################################
+  // Files
+  //##############################################################################
+  // "files.exclude": {},
+  "files.associations": {
+    "*.css": "tailwindcss" // Tailwidcss intellisense
+  },
+
+  //##############################################################################
+  // CSS
+  // Tailwindcss https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+  //##############################################################################
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.hg/**",
+    "**/.svn/**"
+  ],
+  // "css.customData": ["./.vscode/css_custom_data.json"],
+  // "css.validate": false,
+
+  //##############################################################################
+  // Better comments
+  //##############################################################################
+  "better-comments.multilineComments": true,
+  "better-comments.highlightPlainText": true,
+
+  //##############################################################################
+  // Vim
+  //##############################################################################
+  "vim.foldfix": true,
+  "vim.enableNeovim": true,
+
+  //##############################################################################
+  // JSON
+  //##############################################################################
+  "json.schemaDownload.enable": true,
+
+  //##############################################################################
+  // JS/TS
+  //##############################################################################
+  // "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.4/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "npm.packageManager": "pnpm",
+
+  //##############################################################################
+  // Eslint
+  //##############################################################################
+  "eslint.packageManager": "pnpm",
+  "eslint.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.debug": true,
+  "eslint.useESLintClass": true,
+  // "eslint.workingDirectories": [
+  //   { "pattern": "packages/*/" },
+  //   { "pattern": "apps/*/" }
+  // ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact", // .jsx
+    "typescript",
+    "typescriptreact" // .tsx
+  ],
+
+  //##############################################################################
+  // Debug
+  //##############################################################################
+  "debug.toolBarLocation": "docked",
+
+  //##############################################################################
+  // Remote
+  //##############################################################################
+  // Local/Remote extentions https://code.visualstudio.com/docs/devcontainers/containers#_advanced-forcing-an-extension-to-run-locally-or-remotely
+  "remote.extensionKind": {
+    "ms-azuretools.vscode-docker": ["ui"], // Local
+    "msjsdiag.debugger-for-chrome": ["workspace"] // Remote
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/javascript-node",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mads-hartmann.bash-ide-vscode",
+                "dbaeumer.vscode-eslint"
+            ]
+        },
+        "codespaces": {
+            "repositories": {
+                "devcontainers/features": {
+                    "permissions": "write-all"
+                }
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+    },
+    "postCreateCommand": "npm install -g @devcontainers/cli && sudo chown -R node:node /workspace && git clone https://github.com/curol/devcontainers . >/dev/null 2>&1 || true",
+    // For remote host, set workspace mounts, per https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_converting-an-existing-or-predefined-devcontainerjson
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=devcontainers,target=/workspace,type=volume",
+    "remoteUser": "node"
+}

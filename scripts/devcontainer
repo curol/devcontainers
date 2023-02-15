@@ -1,0 +1,49 @@
+#!/bin/bash 
+
+set -e
+
+build_and_publish(){
+    # local _dir=$(pwd)
+    # local _baseName=$(basename $_dir)
+    local _img_name="ghcr.io/curol/devcontainers/$1"
+
+    echo "building image ${_img_name}"
+    echo "..."
+    npx devcontainer build \
+    --no-cache \
+    --image-name $_img_name \
+    --workspace-folder .
+
+    echo "pushing image to ${_img_name}"
+    echo "..."
+    docker push ${_img_name}
+
+    echo "finished ${_img_name}"
+}
+
+_build_vsc_and_publish(){
+    local _imageName=$(npx devcontainer build --no-cache --workspace-folder . | jq '.imageName[]' | tr -d \")
+    local _dir=$(pwd)
+    local _baseName=$(basename $_dir)
+    local _des=ghcr.io/curol/devcontainers/${_baseName}:latest
+    docker tag ${_imageName} ${_des}
+    docker push ${_des}
+}
+
+_login(){
+    # docker login ghcr.io -u <GITHUB_USERNAME> -p <GITHUB_ACCESS_TOKEN> 
+    # Or,
+    # echo <GIT_TOKEN> | docker login ghcr.io -u <GIT_USERNAME> --password-stdin
+    docker login ghcr.io -u $1 -p $2
+}
+
+_publish(){
+    local _dir=$(pwd)
+    local _baseName=$(basename $_dir)
+    local _des=ghcr.io/curol/devcontainers/${_baseName}:latest
+    docker push $_des
+}
+
+build_and_publish "$@"
+
+unset build_and_publish

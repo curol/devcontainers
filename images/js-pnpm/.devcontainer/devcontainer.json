@@ -1,0 +1,15 @@
+{
+  "name": "js-pnpm",
+  "remoteUser": "vscode",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "vscode",
+      "PNPM_VERSION": "latest",
+      "PNPM_GLOBAL_PACKAGES": ""
+    }
+  },
+  "mounts": [
+    "source=commandhistory,target=/commandhistory,type=volume"
+  ]
+}
