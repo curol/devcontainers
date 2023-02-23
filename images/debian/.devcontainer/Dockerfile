@@ -5,6 +5,7 @@ ARG HOME=/home/$USERNAME
 ARG DOTFILES=${DOTFILES}
 ARG WORKSPACE_PATH=${WORKSPACE_PATH}
 ARG TERM=xterm-256color
+ARG COMMAND_HISTORY_PATH=${COMMAND_HISTORY_PATH:-${HOME}/commandhistory}
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update && apt-get -y upgrade \
@@ -12,11 +13,11 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     # Install dotfiles \
     && git clone "${DOTFILES}" \
     # Setup command history \
-    && mkdir -p /commandhistory \
-    && touch /commandhistory/.zsh_history \
-    && sed -i "s|~/.zsh_history|/commandhistory/.zsh_history|" "${HOME}/dotfiles/.zshrc" \
+    && mkdir -p ${COMMAND_HISTORY_PATH} \
+    && touch ${COMMAND_HISTORY_PATH}/.zsh_history \
+    && sed -i "s|~/.zsh_history|${COMMAND_HISTORY_PATH}/.zsh_history|" "${HOME}/dotfiles/.zshrc" \
     && echo "\nexport PROMPT_COMMAND='history -a'\n" >> "${HOME}/dotfiles/.zshrc" \
-    && chown -R "${USERNAME}:${USERNAME}" /commandhistory \
+    && chown -R "${USERNAME}:${USERNAME}" ${COMMAND_HISTORY_PATH} \
     # Install dotfiles \
     && dotfiles/install.sh overwrite -f \
     # Set ownership for home \
