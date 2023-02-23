@@ -9,9 +9,6 @@
       "WORKSPACE_PATH": "/workspaces"
     }
   },
-  "mounts": [
-    "source=commandhistory,target=/commandhistory,type=volume"
-  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -20,6 +17,7 @@
         // Bash
         "mads-hartmann.bash-ide-vscode",
         "timonwong.shellcheck",
+        "foxundermoon.shell-format",
         // Remote
         "ms-vscode-remote.remote-ssh",
         "ms-vscode.remote-server",
@@ -32,7 +30,9 @@
         "ms-azuretools.vscode-docker",
         // Intellicode
         "VisualStudioExptTeam.vscodeintellicode",
-        "VisualStudioExptTeam.intellicode-api-usage-examples"
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        // Github copilot
+        "GitHub.copilot"
       ]
     }
   }

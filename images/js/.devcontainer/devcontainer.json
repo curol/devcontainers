@@ -5,18 +5,16 @@
     "dockerfile": "Dockerfile",
     "args": {
       "USERNAME": "vscode",
-      "NODE_VERSION": "18"
+      "NODE_VERSION": "18",
+      "NVM_VERSION": "0.39.3"
     }
   },
-  "mounts": [
-    "source=commandhistory,target=/commandhistory,type=volume"
-  ],
+  "features": {},
   "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "EditorConfig.EditorConfig"
+        "esbenp.prettier-vscode"
       ]
     }
   }

@@ -2,13 +2,11 @@ FROM ghcr.io/curol/devcontainers/js:latest
 
 ARG USERNAME=${USERNAME}
 ARG PNPM_VERSION=${PNPM_VERSION}
-ARG PNPM_GLOBAL_PACKAGES=${PNPM_GLOBAL_PACKAGES}
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     # Install with corepack \
-    && corepack enable \
-    && su $USERNAME -c "corepack prepare pnpm@$PNPM_VERSION --activate" \
-    && su $USERNAME -s /usr/bin/zsh -c 'pnpm setup' \
+    && su -l $USERNAME /bin/zsh -c "source ~/.zshrc && corepack enable && corepack prepare pnpm@$PNPM_VERSION --activate" \
+    # && su $USERNAME -s /usr/bin/zsh -c 'pnpm setup' \
     # Clean \
     && apt-get autoremove -y \
     && apt-get clean -y \
