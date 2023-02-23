@@ -35,5 +35,6 @@
         "GitHub.copilot"
       ]
     }
-  }
+  },
+  "onCreateCommand": "sudo chown -R vscode:vscode /workspaces && sudo chown -R vscode:vscode /commandhistory"
 }
