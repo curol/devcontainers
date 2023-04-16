@@ -4,7 +4,6 @@ ARG NODE_VERSION=${NODE_VERSION}
 ARG TERM=xterm-256color
 ARG NVM_VER=${NVM_VER:-"0.39.3"}
 
-
 RUN export DEBIAN_FRONTEND=noninteractive \
     # Install nvm \
     && su -l vscode /bin/zsh -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VER}/install.sh | bash" \
